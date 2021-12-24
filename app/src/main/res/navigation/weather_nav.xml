@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weather_nav"
+    app:startDestination="@id/welcomeFragment">
+
+    <action
+        android:id="@+id/action_to_user_list"
+        app:popUpTo="@id/userListFragment"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.app.itguruweather.ui.UserListFragment"
+        android:label="User List"
+        tools:layout="@layout/user_list_screen">
+        <action
+            android:id="@+id/action_userListFragment_to_userFormFragment"
+            app:destination="@id/userFormFragment" />
+        <action
+            android:id="@+id/action_userListFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFormFragment"
+        android:name="com.app.itguruweather.ui.UserFormFragment"
+        android:label="User Form"
+        tools:layout="@layout/user_form_screen">
+        <action
+            android:id="@+id/action_userFormFragment_to_userListFragment2"
+            app:destination="@id/userListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.app.itguruweather.ui.WeatherFragment"
+        android:label="Weather"
+        tools:layout="@layout/weather_screen" >
+        <action
+            android:id="@+id/action_weatherFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.app.itguruweather.ui.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/welcome_screen">
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.app.itguruweather.ui.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_screen">
+        <action
+            android:id="@+id/action_loginFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
+    </fragment>
+
+</navigation>
